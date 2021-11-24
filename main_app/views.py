@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from django.http import HttpResponse, request
+from django.http import request
 
 class Finch:  # Note that parens are optional if not inheriting from another class
   def __init__(self, name, breed, description, age):
@@ -20,7 +20,7 @@ def finches_index(request):
   return render(request, 'finches/index.html', {'finches': finches})
 
 def home(request):
-  return HttpResponse('<h1> Hello </h1>')
+  return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
