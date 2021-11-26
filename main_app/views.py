@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView
 
 from django.http import request
 from .models import Finch, Toy
@@ -53,3 +54,9 @@ class FinchDelete(DeleteView):
 class ToyCreate(CreateView):
   model = Toy
   fields = '__all__'
+
+class ToyList(ListView):
+  model = Toy
+
+class ToyDetail(DetailView):
+  model = Toy
