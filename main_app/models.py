@@ -1,6 +1,12 @@
 from django.db import models
 from django.urls import reverse
 
+MEALS = (
+  ('B', 'Breakfast'),
+  ('L', 'Lunch'),
+  ('D', 'Dinner')
+)
+
 class Finch(models.Model):
   name = models.CharField(max_length=100, null=True)
   breed = models.CharField(max_length=100, null=True)
