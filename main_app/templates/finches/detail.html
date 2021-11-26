@@ -76,7 +76,7 @@
       <button type="submit" class="btn submit">Add Feeding</button>
     </form>
     <h3>Past Feedings</h3>
-
+    {% if finch.feeding_set.all.count %}
     <table>
       <thead>
         <tr><th>Date</th><th>Meal</th></tr>
@@ -90,6 +90,9 @@
         {% endfor %}
       </tbody>
     </table>
+    {% else %}
+      <p class="subsection-content">{{finch.name}} has never been fed 😟</p>
+    {% endif %}
   </section>
 </div>
 
