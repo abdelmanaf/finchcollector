@@ -12,4 +12,8 @@ class Finch(models.Model):
 
   def get_absolute_url(self):
     return reverse("finches_detail", kwargs={"finch_id": self.id})
+
+class Feeding(models.Model):
+  date = models.DateField()
+  meal = models.CharField(max_length=1)
   
