@@ -6,9 +6,11 @@ from django.http import request
 from .models import Finch, Toy
 from .forms import FeedingForm
 
+from django.contrib.auth.views import LoginView
 
-def home(request):
-  return render(request, 'home.html')
+
+# def home(request):
+#   return render(request, 'home.html')
 
 def about(request):
   return render(request, 'about.html')
@@ -77,3 +79,6 @@ class ToyUpdate(UpdateView):
 class ToyDelete(DeleteView):
   model = Toy
   success_url = '/toys/'
+
+class Home(LoginView):
+  template_name = 'home.html'
