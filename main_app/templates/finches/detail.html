@@ -139,7 +139,7 @@
             <a href="{% url 'toys_detail' toy.id %}">
               <p>A {{ toy.color }} {{ toy.name }}</p>
             </a>
-            <form action="" method="post">
+            <form action="{% url 'assoc_toy' finch.id toy.id %}" method="post">
               {% csrf_token %}
               <button type="submit" class="btn submit">Give toy</button>
             </form>

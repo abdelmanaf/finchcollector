@@ -41,6 +41,11 @@ def add_feeding(request, finch_id):
     new_feeding.save()
   return redirect('finches_detail', finch_id=finch_id)
 
+def assoc_toy(request, finch_id, toy_id):
+  # Note that you can pass a toy's id instead of the whole object
+  Finch.objects.get(id=finch_id).toys.add(toy_id)
+  return redirect('finches_detail', finch_id=finch_id)
+
 class FinchCreate(CreateView):
   model = Finch
   fields = '__all__'
