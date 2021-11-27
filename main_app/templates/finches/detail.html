@@ -68,7 +68,7 @@
     <h3>Add a Feeding</h3>
     <form
       action="{% url 'add_feeding' finch.id %}"
-      method="post" 
+      method="post"
       class="subsection-content"
     >
       {% if finch.fed_for_today %}
@@ -99,6 +99,37 @@
     {% else %}
       <p class="subsection-content">{{finch.name}} has never been fed 😟</p>
     {% endif %}
+  </section>
+
+  <section class="toys">
+    <div class="subsection-title">
+      <h2>Toys</h2>
+      <img src="{% static 'images/eleven.jpeg' %}" alt="A ball of string" />
+      <img src="{% static 'images/thirteen.jpeg' %}" alt="A mouse" />
+      <img src="{% static 'images/twelve.jpeg' %}" alt="A fishy toy" />
+    </div>
+    <h3>{{ finch.name }}'s Toys</h3>
+    <div class="subsection-content">
+      {% if finch.toys.count %}
+        {% for toy in finch.toys.all %}
+          <div class="toy-container">
+            <div 
+              class="color-block"
+              style="background-color: {{ toy.color }}"
+            ></div>
+            <a href="{% url 'toys_detail' toy.id %}">
+              <p>A {{ toy.color }} {{ toy.name }}</p>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p class="no-toys">{{finch.name}} doesn't have any toys 😞</p>
+      {% endif %}
+    </div>
+    <h3>Available Toys</h3>
+    <div class="subsection-content">
+      {% comment %} We'll display available toys here {% endcomment %}
+    </div>
   </section>
 </div>
 
